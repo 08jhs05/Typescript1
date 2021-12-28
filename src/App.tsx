@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+interface Istate {
+  people: {
+    name: string,
+    url: string,
+    age: number,
+    note: string
+  }[]
+}
+
 function App() {
+
+  const [people, setPeople] = useState<Istate["people"]>([
+    {
+      name: "Monokuma",
+      url: "https://www.nicepng.com/png/detail/227-2277919_monokuma-transparent-danganronpa-v3-danganronpa-monokuma-sprites-transparent.png",
+      age: 30,
+      note: "Danganronpa mascot"
+    },
+    {
+      name: "Ibuki Mioda",
+      url: "https://static.wikia.nocookie.net/danganronpagoods/images/a/ae/Ibuki_Mioda_Danganronpa_2_Sidebar.png",
+      age: 17,
+      note: "Ultimate musician"
+    }
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>People people people</h1>
     </div>
   );
 }
