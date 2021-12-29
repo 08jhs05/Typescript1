@@ -6,7 +6,7 @@ interface Istate {
     name: string,
     url: string,
     age: number,
-    note: string
+    note?: string
   }[]
 }
 
@@ -23,13 +23,20 @@ function App() {
       name: "Ibuki Mioda",
       url: "https://static.wikia.nocookie.net/danganronpagoods/images/a/ae/Ibuki_Mioda_Danganronpa_2_Sidebar.png",
       age: 17,
-      note: "Ultimate musician"
     }
   ]);
 
   return (
     <div className="App">
       <h1>People people people</h1>
+      {people.map(person => {
+        return <div style={{display: 'flex', width:800, justifyContent:'space-between'}}>
+          <img src={person.url} width={150} height={150}/>
+          <div>{person.name}</div>
+          <div>{person.age} years old</div>
+          <div>{person.note}</div>
+        </div>
+      })}
     </div>
   );
 }
