@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import List from './components/List';
 
 interface Istate {
   people: {
@@ -17,7 +18,7 @@ function App() {
       name: "Monokuma",
       url: "https://www.nicepng.com/png/detail/227-2277919_monokuma-transparent-danganronpa-v3-danganronpa-monokuma-sprites-transparent.png",
       age: 30,
-      note: "Danganronpa mascot"
+      note: "Danganronpa"
     },
     {
       name: "Ibuki Mioda",
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>People people people</h1>
+      <h1>People Invited to my Party</h1>
       {people.map(person => {
         return <div style={{display: 'flex', width:800, justifyContent:'space-between'}}>
           <img src={person.url} width={150} height={150}/>
@@ -37,6 +38,7 @@ function App() {
           <div>{person.note}</div>
         </div>
       })}
+      <List people={people}/>
     </div>
   );
 }

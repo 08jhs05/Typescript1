@@ -1,5 +1,18 @@
 import React from "react";
 
-const List = () => {
-    
+interface Istate {
+    people: {
+      name: string,
+      url: string,
+      age: number,
+      note?: string
+    }[]
+  }
+
+const List = (props: Istate) => {
+    return <div>
+        List components
+    </div>
 }
+
+export default List;
