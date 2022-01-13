@@ -30,14 +30,6 @@ function App() {
   return (
     <div className="App">
       <h1>People Invited to my Party</h1>
-      {people.map(person => {
-        return <div style={{display: 'flex', width:800, justifyContent:'space-between'}}>
-          <img src={person.url} width={150} height={150}/>
-          <div>{person.name}</div>
-          <div>{person.age} years old</div>
-          <div>{person.note}</div>
-        </div>
-      })}
       <List people={people}/>
     </div>
   );
