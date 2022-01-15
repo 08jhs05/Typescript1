@@ -1,29 +1,23 @@
 import React from "react";
+import { Istate } from "../App"
 
-interface Istate {
-    people: {
-      name: string,
-      url: string,
-      age: number,
-      note?: string
-    }[]
-  }
+const List: React.FC<Istate> = ({ people }) => {
 
-const List = ( {people} : Istate) => {
-    return <div className="partyListView">
-        {people.map(person => {
-        return <div style={{display: 'flex', width:800, justifyContent:'space-between'}}>
-          <div style={{flex: 1}}>
-            <img src={person.url} width={150} height={150}/>
-          </div>
-          <div style={{flex: 1}}>{person.name}</div>
-          <div style={{flex: 1.5, display: 'flex'}}>
-            <div style={{paddingLeft: 20, paddingRight: 20}}>{person.age} years old</div>
-            <div style={{paddingLeft: 20, paddingRight: 20}}>{person.note}</div>
-          </div>
+  const renderList = (): JSX.Element[] => {
+    return people.map((person, index) => {
+      return <li className="List" key={index}>
+        <div className="List-header">
+          <img src={person.url} alt="profile pic"/>
+          <h2 className="List-name">{person.name}</h2>
         </div>
-      })}
-    </div>
+        <div className="List-note">{person.age} years old</div>
+        <div className="List-note">{person.note}</div>
+      </li>
+    })
+  }
+    return <ul>
+        {renderList()}
+      </ul>
 }
 
 export default List;
